@@ -37,8 +37,8 @@ int main() {
         if (!(IO1PIN & (1 << 23))) {
             count++;
             delay(10000);
-            digit = count % 10;   // Extract unit place of two-digit number
-            digit1 = count / 10;  // Extract tens place of two-digit number
+            digit = count % 10; 
+            digit1 = count / 10; 
 
             IO0SET = SELDISP1;
             IO0CLR = 0x00FF0000;
