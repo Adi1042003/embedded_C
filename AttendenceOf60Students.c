@@ -37,16 +37,16 @@ int main() {
         if (!(IO1PIN & (1 << 23))) {
             count++;
             delay(10000);
-            digit = count % 10; 
-            digit1 = count / 10; 
+            digit = count % 10; //10%10 =0
+            digit1 = count / 10; //10/10=1
 
             IO0SET = SELDISP1;
             IO0CLR = 0x00FF0000;
-            IO0SET = Disp[digit]; // Print unit place
+            IO0SET = Disp[digit1]; // Print tens place
 
             IO0SET |= SELDISP2;
             IO0CLR = 0x00FF0000;
-            IO0SET = Disp[digit1]; // Print tens place
+            IO0SET = Disp[digit]; // Print unit place
 
             if (count > 60) {
                 count = 0;         // Reset count
