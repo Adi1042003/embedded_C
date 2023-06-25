@@ -18,7 +18,7 @@ unsigned int Disp[10] = {
 
 #define SELDISP1 0x10000000
 #define SELDISP2 0x20000000
-#define ALLDISP  0x30000000
+#define ALLDISP  0xF0000000
 
 void delay(unsigned int time) {
     unsigned int i, j;
