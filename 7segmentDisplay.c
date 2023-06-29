@@ -40,7 +40,7 @@ int main()
 				IO0SET = ALLDISP;
 				IO0CLR = 0x00FF0000;
 				IO0SET = Disp[i];
-				if(!(IO0PIN & 0x00800000))
+				if(!(IO1PIN & 0x00800000))
 				{
 				delay(2000);
 				i++;
