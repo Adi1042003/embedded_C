@@ -11,9 +11,11 @@ int main()
 	PWM_init();
 	while(1)
 	{
+		
 		PWMMR1=9000;
 		PWMMR2=6000;
-		PWMLER=0x06;
+		PWMMR4=3000;
+		PWMLER=(1<<1)|(1<<2)|(1<<4);
 	}
 
 }
@@ -32,10 +34,11 @@ void PLL_init()
 }
 void PWM_init()
 {
-	  PINSEL0=0x00008002;
+	  PINSEL0=0x00028002;
 	  PWMMR0=15000;
 	  PWMTCR=0x09;
 	  PWMMCR=0x02;
 	  PWMPR=0;
-	  PWMPCR=0x0600;
+	  //PWMPCR=0x0E00;
+	  PWMPCR=(1<<9)|(1<<10)|(1<<12);
 }
