@@ -1,4 +1,4 @@
-//1.  a program to generate 50 % duty cycle , 1 KHz , wave and use it to run the buzzer.
+//1.  a program to generate 50 % duty cycle, 1 KHz, wave and use it to run the buzzer.
 
 #include"lpc214x.h"
 
@@ -9,11 +9,11 @@ int main()
 {
 	PLL_init();
 	PWM_init();
-	IO0DIR=0x00;
+	IO0DIR=(0<<21);
 	while(1)
 	{
-			PWMMR5=30000; //connect Buzzer to P0.21
-			PWMLER=(1<<5);	
+			PWMMR6=30000; //connect Buzzer to P0.9
+			PWMLER=(1<<6);	
 	}
 
 }
@@ -32,10 +32,10 @@ void PLL_init()
 }
 void PWM_init()
 {
-	  PINSEL1=0x0400;
+	  PINSEL0=0x080000;
 	  PWMMR0=60000;
 	  PWMTCR=0x09;
 	  PWMMCR=0x02;
 	  PWMPR=0;
-	  PWMPCR=(1<<13);
+	  PWMPCR=(1<<14);
 }
