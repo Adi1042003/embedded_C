@@ -1,4 +1,4 @@
-//5. Generate a wave form for Ton= 2.5 m sec and Toff= 5 m sec with a frequency of 1KHz.
+//5. Generate a waveform for Ton= 2.5 m sec and Toff= 5 m sec with a frequency of 1KHz.
 
 #include"lpc214x.h"
 
@@ -12,8 +12,8 @@ int main()
 	IO0DIR=0x00;
 	while(1)
 	{
-			PWMMR5=20000; 
-			PWMLER=(1<<5);
+		PWMMR5=1500; 	 //25% time on
+		PWMLER=(1<<5);
 	}
 
 }
@@ -32,8 +32,8 @@ void PLL_init()
 }
 void PWM_init()
 {
-	  PINSEL1=0x0400;
-	  PWMMR0=60000;
+	  PINSEL1=(1<<10);
+	  PWMMR0=6000;
 	  PWMTCR=0x09;
 	  PWMMCR=0x02;
 	  PWMPR=0;
