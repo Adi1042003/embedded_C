@@ -1,5 +1,6 @@
 //2. Generate a 4KHz wave with 60% duty cycle and also for 40 % duty cycle.
 
+
 #include"lpc214x.h"
 
 void PLL_init(void);
@@ -33,11 +34,10 @@ void PLL_init()
 }
 void PWM_init()
 {
-	  PINSEL0=0x0008002;
+	  PINSEL0=(1<<1)|(1<<15);//0x0008002
 	  PWMMR0=15000;
 	  PWMTCR=0x09;
 	  PWMMCR=0x02;
 	  PWMPR=0;
 	  PWMPCR=(1<<9)|(1<<10);
 }
-
