@@ -15,27 +15,27 @@ int main()
 	{
 		if(!(IO0PIN & (1<<1)))
 		{
-			PWMMR1=15000;
+			PWMMR1=15000;	//P0.1 pressed = 25 % bright
 			PWMLER=(1<<1);
 		}
 		else if(!(IO0PIN & (1<<2)))
 		{
-			PWMMR1=30000;
+			PWMMR1=30000;	//P0.2 pressed = 50%  bright
 			PWMLER=(1<<1);
 		}
 		else if(!(IO0PIN & (1<<3)))
 		{
-			PWMMR1=45000;
+			PWMMR1=45000;  //P0.3 pressed = 75%  bright
 			PWMLER=(1<<1);
 		}
 		else if(!(IO0PIN & (1<<4)))
 		{
-			PWMMR1=60000;
+			PWMMR1=60000;  //P0.4 gives full brightness =100%
 			PWMLER=(1<<1);
 		}
 		else
 		{
-			PWMMR1=0;
+			PWMMR1=0;	  //This gives 0% brightness when nothing is pressed
 			PWMLER=0x2;
 		}
 	}
@@ -56,10 +56,11 @@ void PLL_init()
 }
 void PWM_init()
 {
-	  PINSEL0=0x00000002;
+	  PINSEL0=(1<<1);
 	  PWMMR0=60000;
 	  PWMTCR=0x09;
 	  PWMMCR=0x02;
 	  PWMPR=0;
 	  PWMPCR=(1<<9);
 }
+
