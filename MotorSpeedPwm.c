@@ -1,5 +1,5 @@
-//4. DC motor is connected PWM5 and need to control the speed of it by operating switches at 
-//P0.1/2/3/4 . write C program for the same.
+//4. DC motor is connected to PWM5 and needs to control the speed of it by operating switches at 
+//P0.1/2/3/4 . Write a C program for the same.
 
 #include"lpc214x.h"
 
@@ -15,28 +15,28 @@ int main()
 	{
 		if(!(IO0PIN & (1<<1)))
 		{
-			PWMMR5=15000;
+			PWMMR5=15000;	  //P0.1 pressed = 25 % speed
 			PWMLER=(1<<5);
 		}
 		else if(!(IO0PIN & (1<<2)))
 		{
-			PWMMR5=30000;
+			PWMMR5=30000;	 //P0.2 pressed = 50 % speed
 			PWMLER=(1<<5);
 		}
 		else if(!(IO0PIN & (1<<3)))
 		{
-			PWMMR5=45000;
+			PWMMR5=45000;	 //P0.3 pressed = 75 % speed
 			PWMLER=(1<<5);
 		}
 		else if(!(IO0PIN & (1<<4)))
 		{
-			PWMMR5=60000;
+			PWMMR5=60000;	 //P0.4 pressed = 100 % speed
 			PWMLER=(1<<5);
 		}
 		else
 		{
 			PWMMR5=0;
-			PWMLER=(1<<5);
+			PWMLER=(1<<5);	 // 0% speed when nothing is pressed
 		}
 	}
 
@@ -56,7 +56,7 @@ void PLL_init()
 }
 void PWM_init()
 {
-	  PINSEL1=0x0400;
+	  PINSEL1=(1<<10);
 	  PWMMR0=60000;
 	  PWMTCR=0x09;
 	  PWMMCR=0x02;
