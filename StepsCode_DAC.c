@@ -18,13 +18,13 @@ while(1)
 {
 	DACR=(0<<6);
 	delay(1);
-	DACR=(256<<6);
+	DACR=(255<<6);
 	delay(1);
-	DACR=(512<<6);
+	DACR=(511<<6);
 	delay(1);
-	DACR=(768<<6);
+	DACR=(767<<6);
 	delay(1);
-	DACR=(1024<<6);
+	DACR=(1023<<6);
 	delay(1);
 }
 }
