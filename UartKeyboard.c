@@ -1,12 +1,13 @@
 /* 1. Write an embedded C program to read from the keyboard and store in an array and then 
-  display it on serial monitor such that baud rate to be 9600 and given PCLK=16MHz. */
+  display it on the serial monitor such that baud rate to be 9600 and given PCLK=16MHz. */
 
-#include <lpc214x.h>
+#include"lpc214x.h"
+#include"math.h"
 
 void PLL_init(void);
 
-
 unsigned int i;
+double pos_inf = INFINITY;
 int main()
 {
     unsigned char msg[]={0};
@@ -19,7 +20,7 @@ int main()
 
     while (1) 
 	{
-	   for(i=0;msg[i]!='$';i++)
+	   for(i=0;i!=pos_inf;i++)
 	   {
         	while (!(U0LSR & (1 << 0)));
         	msg[i] = U0RBR; 
