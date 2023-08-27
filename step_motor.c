@@ -1,9 +1,9 @@
 #include<lpc214x.h>
 
-#define PHASEA (1<<12)    //magnet 1
-#define PHASEB (1<<13)    //magnet 2
-#define PHASEC (1<<14)    //magnet 3
-#define PHASED (1<<15)    //magnet 4
+#define PHASEA (0x09<<12)    //magnet 1
+#define PHASEB (0x0C<<12)    //magnet 2
+#define PHASEC (0x06<<12)    //magnet 3
+#define PHASED (0x03<<12)    //magnet 4
 
 #define Forward 0x00010000
 #define Reverse 0x00020000
@@ -32,38 +32,38 @@ int main(void)
 	
 }
 void Forward1(void)
-	 {
+{
 	      IO0SET = PHASEA;
 			delay(1000);
-			IO0CLR = 0xFFFFFFFF;
+			IO0CLR = PHASEA;
 		 
 		  IO0SET = PHASEB;
 			delay(1000);
-			IO0CLR = 0xFFFFFFFF;
+			IO0CLR = PHASEB;
 		 
 		  IO0SET = PHASEC;
 			delay(1000);
-			IO0CLR = 0xFFFFFFFF;
+			IO0CLR = PHASEC;
 		 
 		  IO0SET = PHASED;
 			delay(1000);
-			IO0CLR = 0xFFFFFFFF;
-	 }
+			IO0CLR = PHASED;
+}
 void Reverse1(void)
-	 {
+{
 		  IO0SET = PHASED;
 			delay(1000);
-			IO0CLR = 0xFFFFFFFF;
+			IO0CLR = PHASED;
 		 
 		  IO0SET = PHASEC;
 			delay(1000);
-			IO0CLR = 0xFFFFFFFF;
+			IO0CLR = PHASEC;
 		 
 		  IO0SET = PHASEB;
 			delay(1000);
-			IO0CLR = 0xFFFFFFFF;
+			IO0CLR = PHASEB;
 		 
 		  IO0SET = PHASEA;
 			delay(1000);
-			IO0CLR = 0xFFFFFFFF;
-	 }
+			IO0CLR = PHASEA;
+}
