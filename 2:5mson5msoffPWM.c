@@ -1,4 +1,4 @@
-//5. Generate a waveform for Ton= 2.5 m sec and Toff= 5 m sec with a frequency of 1KHz.
+//5. Generate a waveform for Ton= 2.5 m sec with a frequency of 10KHz.
 
 #include"lpc214x.h"
 
