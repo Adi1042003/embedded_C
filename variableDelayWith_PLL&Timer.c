@@ -17,20 +17,21 @@ void timer(unsigned int T_delay ,unsigned int unit) {
     T0PR = (unit)-1;	//60M / 60MHz  =1Hz
     T0TCR = 0x02;//reset
     T0TCR = 0x01;//enable
-    while (T0TC != T_delay);
+    T0MR0 = T_delay;
+    while (T0TC != T0MR0);
 	  T0TCR = 0x0;
 	  T0TC= 0;	
 }
 
 int main() {
-    PINSEL0 = 0xF;
+    PINSEL0 = 0xFF;
     IO0DIR = 0xF;
     PLL();
     while (1) {		
         timer(5,60e5);//function call for 0.5s delay
     IO0CLR = (1<<2);
 		IO0SET = (1<<0);
-        timer(2,60e3);//function call for 2ms delay
+        timer(1,60e3);//function call for 1ms delay
 		IO0CLR = (1<<0); 
     IO0SET = (1<<1) ;
 		timer(3,60e6);//function call for 3s delay
