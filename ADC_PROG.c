@@ -4,7 +4,7 @@ unsigned int init_ADC(void);
 
 int main(void)
 {
-    PINSEL0 = (1 << 24);
+    PINSEL1 = (1 << 24);
     while (1)
     {
         unsigned int adcValue = init_ADC();
