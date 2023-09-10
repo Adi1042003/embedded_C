@@ -21,7 +21,7 @@ int main()
 }
 void clock_wise(void)
 {
-	IO0SET |=(1<<11);
+	IO0SET |=|(1<<11);
 	delay(1000);
 }
 void anti_clock_wise(void)
