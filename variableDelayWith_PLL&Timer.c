@@ -17,8 +17,7 @@ void timer(unsigned int T_delay ,unsigned int unit) {
     T0PR = (unit)-1;	//60M / 60MHz  =1Hz
     T0TCR = 0x02;//reset
     T0TCR = 0x01;//enable
-    T0MR0 = T_delay;
-    while (T0TC != T0MR0);
+    while (T0TC != T_delay);
 	  T0TCR = 0x0;
 	  T0TC= 0;	
 }
