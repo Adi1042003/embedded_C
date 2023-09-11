@@ -1,6 +1,6 @@
 #include <LPC214x.h>  
 int i;
-unsigned int pattern[]={0xAAAAAAA,0x5555555};
+unsigned int pattern[]={0xAAAAAAAA,0x55555555};
 int delay (unsigned int time)
 {
 	int x,y;
@@ -9,9 +9,9 @@ int delay (unsigned int time)
 	return 0;
 }	  
 int main() {
-  PINSEL0 = 0x00000000;//select P0.0 - P0.15 
+  PINSEL0 = 0x00000000; 
   PINSEL1 = 0x00000000;
-  IO0DIR |=0xFFFFFFF;  
+  IO0DIR |=0xFFFFFFFF;  
   while(1){
   	for(i=0;i<=1;i++)
 	{
