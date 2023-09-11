@@ -2,7 +2,7 @@
 
 #include <Lpc214x.h>
 
-#define Buzz_pin (1<< 1)
+#define Buzz_pin (1<< 2)
 #define on_off_pin (1<< 16)
 
 int main(void) {
