@@ -9,7 +9,6 @@ int main()
 {
 	PLL_init();
 	PWM_init();
-	IO0DIR=(0<<21);
 	while(1)
 	{
 			PWMMR6=30000; //connect Buzzer to P0.9
