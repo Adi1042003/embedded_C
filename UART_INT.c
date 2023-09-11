@@ -1,4 +1,4 @@
-/* Write an embedded C program to read a character from the keyboard using an interrupt mechanicsm and baud rate to be 4800 given PCLK=16MHz. */
+/* Write an embedded C program to read a character from the keyboard using an interrupt mechanism and baud rate to be 4800 given PCLK=16MHz. */
 
 #include<lpc214x.h>
 #include<stdint.h>
@@ -31,14 +31,14 @@ void UART0_init(void)
     U0LCR = 0x03; 
     // Enable UART0 interrupts (THRE and RBR)
     U0IER = 0x03;
+    VICVectAddr0 = (unsigned)UART0_Interrupt;
+    VICVectCntl0 = (1<<5)|6;
+    VICIntEnable = (1<<6);
+    VICIntSelect = 0x0;
 }
 
 int main(void)
 {
     UART0_init();
-    VICVectAddr0 = (unsigned)UART0_Interrupt;
-    VICVectCntl0 = (1<<5)|6;
-    VICIntEnable = (1<<6);
-    VICIntSelect = 0x0;
     while (1);
 }
