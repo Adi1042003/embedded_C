@@ -17,7 +17,7 @@ __irq void Ext_ISR(void)
 void init_ext(void)
 {
 	PINSEL0 |= (0x00<<16)|(0x03<<2);
-	IO0DIR = (0xFF<<16)|(0<<1);
+	IO0DIR = (0xFF<<16);
 	EXTMODE=0x01;
 	EXTPOLAR=0x00;
 	VICVectAddr0=(unsigned int) Ext_ISR;
