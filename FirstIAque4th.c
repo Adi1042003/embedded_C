@@ -20,8 +20,11 @@ unsigned int Display[]= {
 0x6F00
 };
 int main() {
-  PINSEL0 = 0x00000000;//select P0.0 - P0.15 
-  IO0DIR |=0xFF01; 
+  PINSEL0 = 0x00000000;//select P0.0 - P0.15
+  PINSEL2 = 0x00000000; 
+  IO0DIR |=(0xFF<<8);
+  IO1DIR |=(1<<9);
+   
   while(1){
   	for(i=0;i<=9;i++)
 	{
@@ -31,9 +34,9 @@ int main() {
 		IO0CLR |=Display[i];
 		if(i==9)
 		{
-			IO0SET |=(1<<0);//buzzer
+			IO1SET |=(1<<9);//buzzer
 			delay(1000);
-			IO0CLR |=(1<<0);
+			IO1CLR |=(1<<9);
 		}
 	}
 	}	
