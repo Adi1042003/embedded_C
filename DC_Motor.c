@@ -20,12 +20,17 @@ int main()
 	 }
 }
 void clock_wise(void)
-{
-	IO0SET |=|(1<<11);
+{	
+	IO0SET |=0xFFFFFFFF;
+	delay(1000);//delay to stop the rotation 
+	IO0SET |=(1<<8)|(1<<11);
 	delay(1000);
 }
 void anti_clock_wise(void)
 {
+	IO0SET |=0xFFFFFFFF;
+	delay(1000);//delay to stop the rotation
+	IO0SET |=(1<<8);
 	IO0CLR |=(1<<11);
 	delay(1000);
 }
