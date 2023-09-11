@@ -12,7 +12,8 @@ __irq void UART0_Interrupt(void)
 {
     int iir_value;
     iir_value = U0IIR;
-    if (iir_value & (1<<4))
+	while ( !(iir_value & 0x01) );
+    if (iir_value & (1<<2))
     {
         rx = U0RBR;
     }
