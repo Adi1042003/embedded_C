@@ -9,7 +9,7 @@ int delay (unsigned int time)
 	return 0;
 }	  
 int main() {
-  PINSEL0 = 0xFF;
+  PINSEL0 = 0x00;
   IO0DIR |= 0xFF;  
 
 	for(i=0;i<=3;i++)
