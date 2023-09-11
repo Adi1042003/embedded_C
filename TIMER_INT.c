@@ -27,9 +27,7 @@ __irq void timer0ISR(void){
 	int i;
     long int readVal;
     readVal = T0IR;             
-    IO0SET	= (1<<10); 
-	for(i=0;i<100000;i++);  
-	IO0CLR = (1<<10);       
+    IO0PIN^=10;     
     T0IR = readVal;             
     VICVectAddr = 0x0;         
 }
