@@ -8,7 +8,7 @@ int delay (unsigned int time)
 	return 0;
 }	  
 int main() {
-  PINSEL0 = 0x00FF;//select P0.0 - P0.15
+  PINSEL0 = 0x0000;//select P0.0 - P0.15
   IO0DIR |= 0xFF;  
 
 	for(i=3,j=4;i>=0,j<=7;i--,j++)
