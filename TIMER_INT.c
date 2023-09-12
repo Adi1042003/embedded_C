@@ -38,6 +38,7 @@ void PLL_init(void){
     PLL0FEED = 0x55; 
     while(!(PLL0STAT & (1<<10))); 
     PLL0CON = 0x03;             
-    PLL0FEED = 0xAA;           
+    PLL0FEED = 0xAA;   
+    PLL0FEED = 0x55;      
     VPBDIV = 0x01;             
 }
