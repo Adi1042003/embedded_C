@@ -24,7 +24,7 @@ void Timer0_init(void){
 }
 
 __irq void timer0ISR(void){
-	int i;
+
     long int readVal;
     readVal = T0IR;             
     IO0PIN^=10;     
